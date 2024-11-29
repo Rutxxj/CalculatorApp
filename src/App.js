@@ -15,7 +15,17 @@ function App() {
 
   const calculateResult = () => {
     try {
-      setResult(eval(input)); // Using eval to evaluate the string, but be cautious with it.
+      setResult(eval(input)); // Be cautious with eval; consider alternatives for better security.
+    } catch {
+      setResult("Error");
+    }
+  };
+
+  // Advanced Feature: Increment By 2
+  const incrementBy2 = () => {
+    try {
+      const current = eval(input) || 0; // Parse current input or assume 0
+      setResult(current + 2); // Increment by 2
     } catch {
       setResult("Error");
     }
@@ -23,7 +33,7 @@ function App() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Simple React Calculator</h1>
+      <h1>Advanced React Calculator</h1>
       <div style={{ display: "inline-block", border: "1px solid #ccc", padding: "10px" }}>
         <div style={{ marginBottom: "10px" }}>
           <input
@@ -36,6 +46,7 @@ function App() {
         </div>
         <div style={{ marginBottom: "10px" }}>
           <button onClick={clearInput}>C</button>
+          <button onClick={incrementBy2}>Increment By 2</button>
         </div>
         <div>
           {["7", "8", "9", "/", "4", "5", "6", "*", "1", "2", "3", "-", "0", ".", "=", "+"].map((char) => (
