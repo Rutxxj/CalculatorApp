@@ -7,7 +7,7 @@ function App() {
   const handleClick = (value) => {
     setInput((prev) => prev + value);
   };
-
+  //added a comment
   const clearInput = () => {
     setInput("");
     setResult("");
@@ -53,7 +53,7 @@ function App() {
             <button
               key={char}
               onClick={() => (char === "=" ? calculateResult() : handleClick(char))}
-              style={{ margin: "5px", padding: "10px", fontSize: "16px" }}
+              style={{ margin: "10px", padding: "15px", fontSize: "16px" }}
             >
               {char}
             </button>
